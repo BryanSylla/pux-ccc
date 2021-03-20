@@ -10,14 +10,13 @@ import axios from 'axios'
 import { AlbumTable, FilterInput, PageTitle } from 'components/'
 
 import css from 'styles/Home.module.css'
+import { AlbumData } from 'typings'
 
 const url = 'http://localhost:3000/api/albums'
 
 const Home = (): JSX.Element => {
-  const [albumData, setAlbumData] = useState([])
-  /**
-   * how will you fetch the album data
-   */
+  const [albumData, setAlbumData] = useState<AlbumData[] | []>([])
+
   useEffect(() => {
     getAllAlbumData()
   }, [])

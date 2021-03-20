@@ -5,16 +5,13 @@
  */
 import styled from 'styled-components'
 
+import { AlbumTableProps } from '../typings'
+
 import css from 'styles/Home.module.css'
 
 const Wrapper = styled.div`
   margin-top: 20px;
 `
-
-type AlbumTableProps = {
-  data: any[]
-}
-
 const AlbumTable: React.FC<AlbumTableProps> = ({ data }: AlbumTableProps): JSX.Element => {
   return (
     <Wrapper>
@@ -32,7 +29,7 @@ const AlbumTable: React.FC<AlbumTableProps> = ({ data }: AlbumTableProps): JSX.E
         <tbody>
           {data.map((album) => {
             return (
-              <tr>
+              <tr key={album.artist + album.album + album.country}>
                 <td>{album.country}</td>
                 <td>{album.rank}</td>
                 <td>{album.artist}</td>
