@@ -21,7 +21,7 @@ type PageTitleProps = {
 }
 
 const PageTitle: React.FC<PageTitleProps> = ({
-  title = 'Your Title Here'
+  title = "Bryan Sylla's Favorite Albums"
 }: PageTitleProps): JSX.Element => {
   return (
     <Wrapper>
