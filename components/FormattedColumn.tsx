@@ -1,3 +1,10 @@
+/*
+ * components/FormattedColumn.tsx
+ * Description: React component that allows you to format the data represented in a table column.
+ * To extend simply add your formatting algorithm in the switch statement in the formatData Method
+ * Copyright (c) 2021 PredictiveUX
+ */
+
 import { DetailedHTMLProps, TdHTMLAttributes, useState, useEffect } from 'react'
 
 type formattedTableProps = DetailedHTMLProps<
