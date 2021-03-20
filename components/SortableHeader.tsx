@@ -22,6 +22,7 @@ const SortableHeader = (props: sortableHeaderProps) => {
       onClick={() => {
         if (clickCondition) props.handleClick(innerText)
       }}
+      style={{ cursor: 'pointer' }}
     >
       {props.children}
     </th>
