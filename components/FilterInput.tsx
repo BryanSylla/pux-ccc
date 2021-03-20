@@ -6,6 +6,7 @@
 import styled from 'styled-components'
 
 import css from 'styles/Home.module.css'
+import { ChangeEvent } from 'react'
 
 /** styled components here */
 const Wrapper = styled.div`
@@ -18,19 +19,15 @@ const Wrapper = styled.div`
 const Instructions = styled.div`
   margin-right: 10px;
 `
+type FilterInputProps = {
+  changeHandler: (event: ChangeEvent<HTMLInputElement>) => void
+}
 
-/**
- * We presume you'll need some kind of change handler to listen to inputs
- */
-// type FilterInputProps = {
-//   changeHandler: (evt: Event) => void
-// }
-
-const FilterInput = (): JSX.Element => {
+const FilterInput = (props: FilterInputProps): JSX.Element => {
   return (
     <Wrapper>
       <Instructions>Use this input to filter data...</Instructions>
-      <input type='text' className={css.filterInput} />
+      <input type='text' className={css.filterInput} onChange={props.changeHandler} />
     </Wrapper>
   )
 }
