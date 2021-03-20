@@ -9,22 +9,26 @@ import { AlbumTableProps } from '../typings'
 
 import css from 'styles/Home.module.css'
 import FormattedColumn from './FormattedColumn'
+import SortableHeader from './SortableHeader'
 
 const Wrapper = styled.div`
   margin-top: 20px;
 `
-const AlbumTable: React.FC<AlbumTableProps> = ({ data }: AlbumTableProps): JSX.Element => {
+const AlbumTable: React.FC<AlbumTableProps> = ({
+  data,
+  onClickTableColumnHeader
+}: AlbumTableProps): JSX.Element => {
   return (
     <Wrapper>
       <table className={css.albumTable}>
         <thead>
           <tr>
-            <th>Country</th>
-            <th>Rank</th>
-            <th>Artist</th>
-            <th>Album</th>
-            <th>Year</th>
-            <th>Sold</th>
+            <SortableHeader handleClick={onClickTableColumnHeader}>Country</SortableHeader>
+            <SortableHeader handleClick={onClickTableColumnHeader}>Rank</SortableHeader>
+            <SortableHeader handleClick={onClickTableColumnHeader}>Artist</SortableHeader>
+            <SortableHeader handleClick={onClickTableColumnHeader}>Album</SortableHeader>
+            <SortableHeader handleClick={onClickTableColumnHeader}>Year</SortableHeader>
+            <SortableHeader handleClick={onClickTableColumnHeader}>Sold</SortableHeader>
           </tr>
         </thead>
         <tbody>

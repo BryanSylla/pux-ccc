@@ -1,5 +1,8 @@
+import { MouseEvent } from 'react'
+
 export type AlbumTableProps = {
   data: AlbumData[]
+  onClickTableColumnHeader: (column: string) => void
 }
 
 export interface AlbumData {
@@ -11,6 +14,8 @@ export interface AlbumData {
   sold: number
   rank: Rank
 }
+
+export type TableColumn = 'country' | 'rank' | 'artist' | 'album' | 'year' | 'sold'
 
 type Rank = 1 | 2 | 3 | 4 | 5
 
