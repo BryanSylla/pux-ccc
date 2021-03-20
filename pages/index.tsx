@@ -3,19 +3,34 @@
  * Description: The "homepage", so to speak.
  * Copyright (c) 2021 PredictiveUX
  */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import axios from 'axios'
 
 import { AlbumTable, FilterInput, PageTitle } from 'components/'
 
 import css from 'styles/Home.module.css'
 
+const url = 'http://localhost:3000/api/albums'
+
 const Home = (): JSX.Element => {
-  const [albumData] = useState([])
+  const [albumData, setAlbumData] = useState([])
   /**
    * how will you fetch the album data
    */
-  // useEffect(() => {}, [])
+  useEffect(() => {
+    getAllAlbumData()
+  }, [])
+
+  const getAllAlbumData = (): void => {
+    axios
+      .get(url)
+      .then((res) => {
+        const albumData = res.data
+        setAlbumData(albumData)
+      })
+      .catch((error) => console.error(`Error: ${error}`))
+  }
 
   return (
     <React.Fragment>

@@ -30,15 +30,18 @@ const AlbumTable: React.FC<AlbumTableProps> = ({ data }: AlbumTableProps): JSX.E
           </tr>
         </thead>
         <tbody>
-          {/* this is placeholder data...substitute with your fetched data */}
-          <tr>
-            <td>United States</td>
-            <td>4</td>
-            <td>AC/DC</td>
-            <td>Back in Black</td>
-            <td>1980</td>
-            <td>25,000,000</td>
-          </tr>
+          {data.map((album) => {
+            return (
+              <tr>
+                <td>{album.country}</td>
+                <td>{album.rank}</td>
+                <td>{album.artist}</td>
+                <td>{album.album}</td>
+                <td>{album.year}</td>
+                <td>{album.sold}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </Wrapper>
