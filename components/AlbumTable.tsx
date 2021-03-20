@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import { AlbumTableProps } from '../typings'
 
 import css from 'styles/Home.module.css'
+import FormattedColumn from './FormattedColumn'
 
 const Wrapper = styled.div`
   margin-top: 20px;
@@ -35,7 +36,7 @@ const AlbumTable: React.FC<AlbumTableProps> = ({ data }: AlbumTableProps): JSX.E
                 <td>{album.artist}</td>
                 <td>{album.album}</td>
                 <td>{album.year}</td>
-                <td>{album.sold}</td>
+                <FormattedColumn format={'addCommasBigNumber'}>{album.sold}</FormattedColumn>
               </tr>
             )
           })}
